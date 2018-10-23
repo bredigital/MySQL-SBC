@@ -1,11 +1,8 @@
 # MySQL Sheduled Backup Creator.
 # By Casey Lambie for BRE Digital.
-# Release version 23/3/2018. Requires Powershell greater than 4.
+# Requires Powershell greater than 4.
 
 # -- Options --
-#$username = "localbackup";
-#$password = "password";
-
 $mysqlpath = "C:\Program Files\MySQL\MySQL Server 5.7\bin";
 $exportpath = "Backups"; # Fullpath preferable for non-original storage.
 
