@@ -1,12 +1,19 @@
 # MySQL Sheduled Backup Creator
-When combined with cron, this tool automatically generates daily .sql backups,
-up to a specified interval limit.
+Simple Powershell script that - combined with Windows Task Sheduler - will
+generate `.sql` dump files on a specified interval rate with minimal
+configuration and no manual intervention.
+
+## Configuration
+The `deconf.ini` file is used by MySQL dump to login to your MySQL server. This
+user needs backup privileges to all databases desired to be backed up.
+
+In the `sbc.ps1` file is a small section entitled Options. Here you can change
+the settings to suit your preferences.
 
 ## Running
-At the top of the script are configurable options, primarily paths and 
-intervals. The script looks for `deconf.ini` which will contain [Client] info
-for logging in to MySQL. 
+Once configured, simply call `sbc.ps1` from a Powershell prompt in the installed
+directory, and the SBC will begin exporting databases instantly. 
 
-The script will automatically store YYYYMMDD folders of backups in the enclosed
-directory. You may edit the path to change this to being elsewhere, so long as
-the executing user has access to said directory.
+The script will generate folders based on YYYYMMDD with a dump file for each
+database on the connected server. Once the maximum limit has been reached, the
+system will prune the oldest folder in order to continue.
